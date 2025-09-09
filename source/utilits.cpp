@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-
 int valid_int() {
     int number;
 

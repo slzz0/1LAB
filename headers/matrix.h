@@ -19,6 +19,6 @@ class Matrix {
     void input_matrix();
     void print_matrix();
     void multiply_by_number(int number);
+    Matrix(const Matrix& other);
+    Matrix& operator=(const Matrix& other);
 };
-
-

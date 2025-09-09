@@ -89,3 +89,24 @@ void Matrix::multiply_by_number(int number) {
     cout << "Matrix multiplied by " << number
          << " successfully! (to see the new matrix select 3-rd option)" << endl;
 }
+
+Matrix::Matrix(const Matrix& other) {
+    allocate_memory(other.rows_count, other.cols_count);
+    for (int i = 0; i < rows_count; i++) {
+        for (int j = 0; j < cols_count; j++) {
+            data[i][j] = other.data[i][j];
+        }
+    }
+}
+
+Matrix& Matrix::operator=(const Matrix& other) {
+    if (this == &other) return *this;
+    free_memory();
+    allocate_memory(other.rows_count, other.cols_count);
+    for (int i = 0; i < rows_count; i++) {
+        for (int j = 0; j < cols_count; j++) {
+            data[i][j] = other.data[i][j];
+        }
+    }
+    return *this;
+}
