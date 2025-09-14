@@ -90,11 +90,13 @@ void Matrix::multiplyByNumber(int number) const {
          << " successfully! (to see the new matrix select 2-rd option)" << endl;
 }
 
-Matrix::Matrix(const Matrix& other) {
-    allocateMemory(other.rows_count, other.cols_count);
-    for (int i = 0; i < rows_count; i++) {
-        for (int j = 0; j < cols_count; j++) {
-            data[i][j] = other.data[i][j];
+Matrix::Matrix(const Matrix& other) : data(nullptr), rows_count(0), cols_count(0) {
+    if (other.data != nullptr && other.rows_count > 0 && other.cols_count > 0) {
+        allocateMemory(other.rows_count, other.cols_count);
+        for (int i = 0; i < rows_count; i++) {
+            for (int j = 0; j < cols_count; j++) {
+                data[i][j] = other.data[i][j];
+            }
         }
     }
 }
