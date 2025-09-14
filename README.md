@@ -10,4 +10,4 @@
 
 ##  SonarCloud  
 Результаты SonarCloud:  
->> [SonarCloud](https://sonarcloud.io/project/overview?id=slzz0_1LAB)  
+[SonarCloud](https://sonarcloud.io/project/overview?id=slzz0_1LAB)  
