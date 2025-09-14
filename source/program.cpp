@@ -6,27 +6,27 @@
 
 using namespace std;
 
-void run_program() {
+void runProgram() {
     Matrix my_matrix;
     int choice;
 
-    task_menu();
+    taskMenu();
 
     while (true) {
         cout << "\nSelect a task MENU option: ";
-        choice = valid_int();
+        choice = validInt();
 
         switch (choice) {
             case 1:
-                my_matrix.input_matrix();
+                my_matrix.inputMatrix();
                 break;
             case 2:
-                my_matrix.print_matrix();
+                my_matrix.printMatrix();
                 break;
             case 3: {
                 cout << "Enter the number you want to multiply your matrix by: ";
-                int num = valid_int();
-                my_matrix.multiply_by_number(num);
+                int num = validInt();
+                my_matrix.multiplyByNumber(num);
                 break;
             }
             case 4:

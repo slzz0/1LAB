@@ -1,5 +1,5 @@
 #pragma once
 
-void run_program();
+void runProgram();
 
 

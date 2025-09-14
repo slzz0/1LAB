@@ -1,3 +1,3 @@
 #pragma once
 
-int valid_int();
+int validInt();

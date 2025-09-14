@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void task_menu() {
+void taskMenu() {
     std::cout << "\n\t\t\tTASK" << std::endl;
     std::cout << "Create a class Matrix." << std::endl;
     std::cout << "Allocate memory for the matrix dynamically." << std::endl;

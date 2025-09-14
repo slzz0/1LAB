@@ -8,17 +8,18 @@ class Matrix {
     int cols_count;
     int rows_count;
 
-    void allocate_memory(int rows, int cols);
-    void free_memory();
+    void allocateMemory(int rows, int cols);
+    void freeMemory();
 
    public:
     Matrix();
     Matrix(int rows, int cols);
     ~Matrix();
 
-    void input_matrix();
-    void print_matrix();
-    void multiply_by_number(int number);
+    void inputMatrix();
+    void printMatrix() const;
+    void multiplyByNumber(const int number);
+
     Matrix(const Matrix& other);
     Matrix& operator=(const Matrix& other);
 };

@@ -4,17 +4,17 @@
 
 using namespace std;
 
-Matrix::Matrix() : rows_count(0), cols_count(0), data(nullptr) {}
+Matrix::Matrix() : data(nullptr), rows_count(0), cols_count(0) {}
 Matrix::Matrix(int rows, int cols) {
     if (rows <= 0 || cols <= 0) {
         throw std::invalid_argument("Matrix dimensions must be a positive number");
     }
-    allocate_memory(rows, cols);
+    allocateMemory(rows, cols);
 }
 
-Matrix::~Matrix() { free_memory(); }
+Matrix::~Matrix() { freeMemory(); }
 
-void Matrix::allocate_memory(int rows, int cols) {
+void Matrix::allocateMemory(int rows, int cols) {
     rows_count = rows;
     cols_count = cols;
 
@@ -29,7 +29,7 @@ void Matrix::allocate_memory(int rows, int cols) {
     }
 }
 
-void Matrix::free_memory() {
+void Matrix::freeMemory() {
     if (data != nullptr) {
         for (int i = 0; i < rows_count; i++) {
             delete[] data[i];
@@ -39,30 +39,30 @@ void Matrix::free_memory() {
     }
 }
 
-void Matrix::input_matrix() {
+void Matrix::inputMatrix() {
     if (data == nullptr) {
         cout << "Enter the number of rows in the matrix: ";
-        rows_count = valid_int();
+        rows_count = validInt();
         cout << "Enter the number of columns in the matrix: ";
-        cols_count = valid_int();
+        cols_count = validInt();
 
         if (rows_count <= 0 || cols_count <= 0) {
             throw std::invalid_argument("Matrix dimensions must be a positive number");
         }
 
-        allocate_memory(rows_count, cols_count);
+        allocateMemory(rows_count, cols_count);
     }
 
     cout << "Enter matrix elements " << rows_count << "x" << cols_count << ":\n";
     for (int i = 0; i < rows_count; i++) {
         for (int j = 0; j < cols_count; j++) {
             cout << "Element [" << i << "][" << j << "]: ";
-            data[i][j] = valid_int();
+            data[i][j] = validInt();
         }
     }
 }
 
-void Matrix::print_matrix() {
+void Matrix::printMatrix() const {
     if (data == nullptr) {
         cout << "The matrix is not initialized (you must select 1-st option)" << endl;
         return;
@@ -76,7 +76,7 @@ void Matrix::print_matrix() {
     }
 }
 
-void Matrix::multiply_by_number(int number) {
+void Matrix::multiplyByNumber(const int number) {
     if (data == nullptr) {
         cout << "The matrix is not initialized (you must select 1-st option)" << endl;
         return;
@@ -86,12 +86,11 @@ void Matrix::multiply_by_number(int number) {
             data[i][j] *= number;
         }
     }
-    cout << "Matrix multiplied by " << number
-         << " successfully! (to see the new matrix select 3-rd option)" << endl;
+    cout << "Matrix multiplied by " << number << " successfully! (to see the new matrix select 3-rd option)" << endl; 
 }
 
 Matrix::Matrix(const Matrix& other) {
-    allocate_memory(other.rows_count, other.cols_count);
+    allocateMemory(other.rows_count, other.cols_count);
     for (int i = 0; i < rows_count; i++) {
         for (int j = 0; j < cols_count; j++) {
             data[i][j] = other.data[i][j];
@@ -101,8 +100,8 @@ Matrix::Matrix(const Matrix& other) {
 
 Matrix& Matrix::operator=(const Matrix& other) {
     if (this == &other) return *this;
-    free_memory();
-    allocate_memory(other.rows_count, other.cols_count);
+    freeMemory();
+    allocateMemory(other.rows_count, other.cols_count);
     for (int i = 0; i < rows_count; i++) {
         for (int j = 0; j < cols_count; j++) {
             data[i][j] = other.data[i][j];

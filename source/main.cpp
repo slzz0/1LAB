@@ -1,6 +1,6 @@
 #include "../headers/program.h"
 
 int main() {
-    run_program();
+    runProgram();
     return 0;
 }
