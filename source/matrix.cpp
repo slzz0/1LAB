@@ -76,7 +76,7 @@ void Matrix::printMatrix() const {
     }
 }
 
-void Matrix::multiplyByNumber(const int number) {
+void Matrix::multiplyByNumber(int number) const {
     if (data == nullptr) {
         cout << "The matrix is not initialized (you must select 1-st option)" << endl;
         return;
@@ -86,7 +86,7 @@ void Matrix::multiplyByNumber(const int number) {
             data[i][j] *= number;
         }
     }
-    cout << "Matrix multiplied by " << number << " successfully! (to see the new matrix select 3-rd option)" << endl; 
+    cout << "Matrix multiplied by " << number << " successfully! (to see the new matrix select 2-rd option)" << endl; 
 }
 
 Matrix::Matrix(const Matrix& other) {

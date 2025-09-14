@@ -18,7 +18,7 @@ class Matrix {
 
     void inputMatrix();
     void printMatrix() const;
-    void multiplyByNumber(const int number);
+    void multiplyByNumber(int number) const;
 
     Matrix(const Matrix& other);
     Matrix& operator=(const Matrix& other);
