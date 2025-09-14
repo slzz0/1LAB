@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Matrix::Matrix() : data(nullptr), rows_count(0), cols_count(0) {}
+Matrix::Matrix() : data(nullptr), cols_count(0), rows_count(0) {}
 Matrix::Matrix(int rows, int cols) {
     if (rows <= 0 || cols <= 0) {
         throw std::invalid_argument("Matrix dimensions must be a positive number");
@@ -86,7 +86,8 @@ void Matrix::multiplyByNumber(int number) const {
             data[i][j] *= number;
         }
     }
-    cout << "Matrix multiplied by " << number << " successfully! (to see the new matrix select 2-rd option)" << endl; 
+    cout << "Matrix multiplied by " << number
+         << " successfully! (to see the new matrix select 2-rd option)" << endl;
 }
 
 Matrix::Matrix(const Matrix& other) {
